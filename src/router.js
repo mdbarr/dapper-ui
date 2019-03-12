@@ -1,11 +1,13 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from './views/Home.vue'
-import About from './views/About.vue'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Home from './views/Home.vue';
+import Login from './views/Login.vue';
 
-Vue.use(Router)
+import store from './store';
 
-export default new Router({
+Vue.use(Router);
+
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -15,9 +17,18 @@ export default new Router({
       component: Home
     },
     {
-      path: '/about',
-      name: 'about',
-      component: About
+      path: '/login',
+      name: 'login',
+      component: Login
     }
   ]
-})
+});
+
+router.beforeEach((to, from, next) => {
+  if (!store.state.loggedIn && to.name !== 'login') {
+    return next({ path: '/login' });
+  }
+  return next();
+});
+
+export default router;

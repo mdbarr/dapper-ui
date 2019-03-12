@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   env: { node: true },
-  'extends': [
+  extends: [
     'plugin:vue/essential',
     '@vue/standard'
   ],
@@ -133,7 +133,7 @@ module.exports = {
     'quotes': [ 'error', 'single', { 'avoidEscape': true } ],
     'radix': [ 'error', 'always' ],
     'require-yield': 'error',
-    'semi': 'error',
+    'semi': [ 'error', 'always' ],
     'space-before-blocks': 'error',
     'space-infix-ops': 'error',
     'strict': 'error',
@@ -147,4 +147,4 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   },
   parserOptions: { parser: 'babel-eslint' }
-}
+};
