@@ -10,7 +10,12 @@
       <v-form>
         <v-text-field dark prepend-icon="mdi-account" name="dapper-username" label="Username" type="text" browser-autocomplete="new-password"></v-text-field>
         <v-text-field dark prepend-icon="mdi-lock" name="dapper-password" label="Password" type="password" browser-autocomplete="new-password"></v-text-field>
-        <v-btn color="#fff" light @click.native="login()">Login</v-btn>
+        <div>
+          <v-btn class="dapper-login" color="#fff" light @click.native="login()">
+            Login
+            <v-icon right dark>mdi-login-variant</v-icon>
+          </v-btn>
+        </div>
       </v-form>
 
     </v-flex>
@@ -45,15 +50,27 @@ export default {
 }
 .dapper-title {
     position: absolute;
-    height: 32px;
+    height: 64px;
     top: 8px;
     left: 80px;
-    padding-left: 8px;
     padding-top: 4px;
     color: #fff;
     font-size: 32px;
     font-weight: 700;
     font-style: italic;
     text-transform: uppercase;
+}
+.dapper-title::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: #fff;
+    background: linear-gradient(to left, transparent 0%,#fff 50%,transparent 100%);
+}
+.dapper-login {
+    float: right;
 }
 </style>
