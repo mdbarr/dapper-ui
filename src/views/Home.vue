@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Dapper Logo" src="../assets/logo.svg" width="200">
+    <img alt="Dapper Logo" src="../assets/dapper-logo-black.svg" width="200">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
