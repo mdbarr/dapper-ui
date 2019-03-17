@@ -6,6 +6,9 @@
       <div class="dapper-logo"><img src="../assets/dapper-logo-white.svg"></div>
       <div class="dapper-title">
         {{ title }}
+        <div class="dapper-subtitle">
+          {{ subtitle }}
+        </div>
       </div>
       <v-form>
         <v-text-field dark prepend-icon="mdi-account" name="dapper-username" label="Username" type="text" browser-autocomplete="new-password"></v-text-field>
@@ -31,7 +34,8 @@ export default {
   data () {
     return {
       state: store.state,
-      title: 'Dapper Identity Manager'
+      title: 'Dapper',
+      subtitle: 'Identity Manager'
     };
   },
   methods: { login () {
@@ -63,11 +67,12 @@ export default {
 .dapper-title {
     position: absolute;
     height: 64px;
-    top: 10px;
+    top: 2px;
     left: 80px;
-    padding-top: 4px;
+    padding: 4px 8px 8px 8px;
     color: #fff;
     font-size: 28px;
+    letter-spacing: 2px;
     font-weight: 700;
     font-style: italic;
     text-transform: uppercase;
@@ -75,12 +80,15 @@ export default {
 .dapper-title::after {
     content: '';
     position: absolute;
-    bottom: 16px;
+    bottom: 22px;
     left: 0;
     height: 2px;
     width: 100%;
     background: #fff;
     background: linear-gradient(to left, transparent 0%,#fff 50%,transparent 100%);
+}
+.dapper-subtitle {
+    font-size: 8px;
 }
 .dapper-login {
     float: right;
