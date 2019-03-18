@@ -2,17 +2,12 @@
 <v-container fluid fill-height>
   <v-layout align-center justify-center>
     <v-flex xs12 sm8 md4>
+      <img alt="Dapper Logo" src="../assets/dapper-logo-black.svg" width="200">
+      <div class="dapper-title-black headline">{{ title }} {{ subtitle }}</div>
 
-      <div class="dapper-logo"><img src="../assets/dapper-logo-white.svg"></div>
-      <div class="dapper-title">
-        {{ title }}
-        <div class="dapper-subtitle">
-          {{ subtitle }}
-        </div>
-      </div>
       <v-form>
-        <v-text-field dark prepend-icon="mdi-account" name="dapper-username" label="Username" type="text" browser-autocomplete="new-password"></v-text-field>
-        <v-text-field dark prepend-icon="mdi-lock" name="dapper-password" label="Password" type="password" browser-autocomplete="new-password"></v-text-field>
+        <v-text-field light prepend-icon="mdi-account" name="dapper-username" label="Username" type="text" browser-autocomplete="new-password"></v-text-field>
+        <v-text-field light prepend-icon="mdi-lock" name="dapper-password" label="Password" type="password" browser-autocomplete="new-password"></v-text-field>
         <div>
           <v-btn class="dapper-login" color="#fff" light @click.native="login()">
             Login
@@ -54,6 +49,12 @@ export default {
     background-size: 28px 28px !important;
     width: 28px !important;
     height: 28px !important;
+}
+.dapper-title-black {
+    margin-top: -54px;
+    margin-bottom: 10px;
+    color: #000;
+    text-transform: uppercase;
 }
 .dapper-logo {
     position: absolute;

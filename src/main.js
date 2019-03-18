@@ -8,7 +8,7 @@ import '@mdi/font/css/materialdesignicons.min.css';
 
 Vue.use(Vuetify, {
   iconfont: 'mdi',
-  theme: { primary: '#fff' }
+  theme: { primary: '#000' }
 });
 
 Vue.config.productionTip = false;
