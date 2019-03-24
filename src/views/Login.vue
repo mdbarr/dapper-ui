@@ -5,7 +5,7 @@
       <img alt="Dapper Logo" src="../assets/dapper-logo-black.svg" width="200">
       <div class="dapper-title-black headline">{{ title }} {{ subtitle }}</div>
 
-      <v-form>
+      <v-form class="dapper-form" v-if="!state.loggedIn">
         <v-text-field light prepend-icon="mdi-account" name="dapper-username" label="Username" type="text" browser-autocomplete="new-password"></v-text-field>
         <v-text-field light prepend-icon="mdi-lock" name="dapper-password" label="Password" type="password" browser-autocomplete="new-password"></v-text-field>
         <div>
@@ -15,7 +15,15 @@
           </v-btn>
         </div>
       </v-form>
-
+      <v-form class="dapper-form" v-else-if="!state.authorized">
+        <v-text-field light prepend-icon="mdi-qrcode" name="dapper-username" label="Multi-factor authorization code" type="text" browser-autocomplete="new-password"></v-text-field>
+        <div>
+          <v-btn class="dapper-login" color="#fff" light @click.native="mfa()">
+            Submit
+            <v-icon right dark>mdi-checkbox-marked-outline</v-icon>
+          </v-btn>
+        </div>
+      </v-form>
     </v-flex>
   </v-layout>
 
@@ -33,10 +41,15 @@ export default {
       subtitle: 'Identity Manager'
     };
   },
-  methods: { login () {
-    this.state.loggedIn = true;
-    this.$router.replace({ name: 'dashboard' });
-  } }
+  methods: {
+    login () {
+      this.state.loggedIn = true;
+    },
+    mfa () {
+      this.state.authorized = true;
+      this.$router.replace({ name: 'dashboard' });
+    }
+  }
 };
 </script>
 
@@ -93,5 +106,8 @@ export default {
 }
 .dapper-login {
     float: right;
+}
+.dapper-form {
+    height: 200px;
 }
 </style>

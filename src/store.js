@@ -3,7 +3,9 @@ function Store () {
 
   self.state = {
     loading: false,
-    loggedIn: false
+    loggedIn: false,
+    authorized: false,
+    session: null
   };
 }
 
