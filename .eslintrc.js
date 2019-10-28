@@ -18,7 +18,6 @@ module.exports = {
     'comma-dangle': [ 'error', 'never' ],
     'comma-spacing': 'error',
     'comma-style': [ 'error', 'last' ],
-    'complexity': [ 'error', 25 ],
     'consistent-return': 'error',
     'constructor-super': 'error',
     'default-case': 'error',
@@ -134,7 +133,11 @@ module.exports = {
     'radix': [ 'error', 'always' ],
     'require-yield': 'error',
     'semi': [ 'error', 'always' ],
+    'spaced-comment': [ 'error', 'always', { 'exceptions': [ '/' ] } ],
     'space-before-blocks': 'error',
+    'space-before-function-paren': [ 'error', {
+      'anonymous': 'ignore', 'named': 'always'
+    } ],
     'space-infix-ops': 'error',
     'strict': 'error',
     'template-curly-spacing': [ 'error', 'always' ],

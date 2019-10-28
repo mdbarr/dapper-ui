@@ -1,8 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
-import Login from './views/Login.vue';
-
 import store from './store';
 
 Vue.use(Router);
@@ -14,12 +11,12 @@ const router = new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: () => { return import('./views/Home.vue'); }
     },
     {
       path: '/login',
       name: 'login',
-      component: Login
+      component: () => { return import('./views/Login.vue'); }
     }
   ]
 });
